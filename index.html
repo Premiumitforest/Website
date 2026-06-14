@@ -29,6 +29,7 @@
             background-color: #ffffff;
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* --- Navigation Bar --- */
@@ -70,42 +71,31 @@
 
         nav ul li a:hover { color: var(--primary); }
 
-        /* --- MOBILE RESPONSIVE FIXES FOR NAVIGATION --- */
+        /* --- Mobile Navigation Support --- */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 padding: 15px 20px;
                 gap: 10px;
             }
-            
             nav ul {
                 width: 100%;
                 justify-content: center;
                 flex-wrap: wrap;
                 gap: 15px;
             }
-
-            nav ul li {
-                margin-left: 0;
-            }
+            nav ul li { margin-left: 0; }
+            nav ul li a { font-size: 14px; }
             
-            nav ul li a {
-                font-size: 14px;
-            }
-
-            .hero h1 {
-                font-size: 32px !important;
-            }
-            
-            .hero p {
-                font-size: 15px !important;
-            }
+            .hero h1 { font-size: 32px !important; }
+            .hero p { font-size: 15px !important; }
+            .support-box { width: 100% !important; }
         }
 
-        /* --- Hero Banner Section --- */
+        /* --- Static Hero Section Banner --- */
         .hero {
-            background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.85)), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
-            min-height: 60vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            min-height: 55vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -125,7 +115,8 @@
         .hero p {
             font-size: 18px;
             font-weight: 300;
-            max-width: 600px;
+            max-width: 650px;
+            color: #e2e8f0;
         }
 
         /* --- Global Sections Layout --- */
@@ -204,160 +195,103 @@
             border-left: 4px solid var(--secondary);
         }
 
-        /* --- Clean Leadership Text Grid Layout --- */
-        .team-section {
-            background: #ffffff;
-            padding: 40px 8%;
-        }
-
-        .team-grid {
+        /* --- CLEAN STATIC SUPPORT BOX COMPONENT --- */
+        .support-section {
+            background-color: #f1f5f9;
             display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .team-card {
-            text-align: center;
-            padding: 20px 40px;
-            background: var(--light);
-            border-radius: 6px;
-            min-width: 240px;
-            border-top: 3px solid var(--primary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .team-card h3 {
-            font-size: 19px;
-            color: var(--dark);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .team-card p {
-            font-size: 14px;
-            color: var(--primary);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- Grid Component: Core Highlights --- */
-        .why-choose-us {
-            background: var(--light);
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .highlight-item {
-            background: #ffffff;
-            padding: 35px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .highlight-item .badge-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 86, 179, 0.1);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin: 0 auto 20px auto;
         }
 
-        /* --- Continuous Logo Marquee Component --- */
-        .marquee-wrapper {
+        .support-box {
+            width: 480px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
             overflow: hidden;
-            width: 100%;
-            background: #ffffff;
-            padding: 20px 0;
-            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
         }
 
-        .marquee-content {
-            display: flex;
-            width: max-content;
-            animation: scrollMarquee 25s linear infinite;
-        }
-
-        .marquee-content h4 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #cbd5e1;
-            padding: 0 50px;
-            letter-spacing: 2px;
+        .support-header-title {
+            padding: 25px 20px 15px 20px;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #1e293b;
             text-transform: uppercase;
         }
 
-        @keyframes scrollMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .support-header-title span {
+            color: #0284c7;
         }
 
-        /* --- Footer & Directory Details --- */
-        footer {
-            background: var(--dark);
-            color: #ffffff;
-            padding: 60px 8% 20px 8%;
+        .support-row-item {
+            border-top: 1px solid #f1f5f9;
+            background: #ffffff;
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #475569;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            text-align: left;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #ffffff;
-            position: relative;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 2px;
-            background: var(--secondary);
-            margin-top: 5px;
-        }
-
-        .footer-col p {
-            color: #94a3b8;
-            font-size: 14px;
-            margin-bottom: 12px;
+        .support-action-body {
+            border-top: 1px solid #f1f5f9;
+            background: #fafafa;
+            padding: 40px 20px;
             display: flex;
+            justify-content: center;
             align-items: center;
         }
 
-        .footer-col p i {
-            margin-right: 12px;
-            color: var(--secondary);
-            font-size: 16px;
+        .login-btn-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #0284c7;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            transition: background 0.3s, transform 0.2s;
         }
 
-        .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 20px;
-            font-size: 13px;
-            color: #64748b;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+        .login-btn-link:hover {
+            background: #0369a1;
+            transform: translateY(-2px);
         }
+
+        /* --- Leadership Grid --- */
+        .team-section { background: #ffffff; padding: 40px 8%; }
+        .team-grid { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 20px; }
+        .team-card { text-align: center; padding: 20px 40px; background: var(--light); border-radius: 6px; min-width: 240px; border-top: 3px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .team-card h3 { font-size: 19px; color: var(--dark); font-weight: 600; margin-bottom: 5px; }
+        .team-card p { font-size: 14px; color: var(--primary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Highlights --- */
+        .why-choose-us { background: var(--light); }
+        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .highlight-item { background: #ffffff; padding: 35px 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); }
+        .highlight-item .badge-icon { width: 70px; height: 70px; background: rgba(0, 86, 179, 0.1); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 20px auto; }
+
+        /* --- Logo Slider --- */
+        .marquee-wrapper { overflow: hidden; width: 100%; background: #ffffff; padding: 20px 0; }
+        .marquee-content { display: flex; width: max-content; animation: scrollMarquee 25s linear infinite; }
+        .marquee-content h4 { font-size: 24px; font-weight: 600; color: #cbd5e1; padding: 0 50px; letter-spacing: 2px; text-transform: uppercase; }
+        @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- Footer --- */
+        footer { background: var(--dark); color: #ffffff; padding: 60px 8% 20px 8%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left; margin-bottom: 40px; }
+        .footer-col h3 { font-size: 18px; margin-bottom: 20px; color: #ffffff; position: relative; }
+        .footer-col h3::after { content: ''; display: block; width: 30px; height: 2px; background: var(--secondary); margin-top: 5px; }
+        .footer-col p { color: #94a3b8; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; }
+        .footer-col p i { margin-right: 12px; color: var(--secondary); font-size: 16px; }
+        .footer-bottom { border-top: 1px solid #334155; padding-top: 20px; font-size: 13px; color: #64748b; display: flex; justify-content: space-between; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -440,7 +374,6 @@
     <section class="section-container why-choose-us">
         <h2 class="section-title">Why Choose Us</h2>
         <p class="section-subtitle">Uncompromising standards in commercial technology maintenance and response speeds.</p>
-        
         <div class="highlights-grid">
             <div class="highlight-item">
                 <div class="badge-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
@@ -463,11 +396,23 @@
     <section class="section-container" style="padding-bottom: 40px; background: #fafafa;">
         <h2 class="section-title">Strategic Networks</h2>
         <p class="section-subtitle">Providing cross-platform hardware sales, authentic product sourcing, and system support.</p>
-        
         <div class="marquee-wrapper">
             <div class="marquee-content">
                 <h4>HEWLETT PACKARD</h4><h4>ASUS</h4><h4>ACER</h4><h4>LENOVO</h4><h4>D-LINK</h4><h4>CANON</h4><h4>GIGABYTE</h4>
                 <h4>HEWLETT PACKARD</h4><h4>ASUS</h4><h4>ACER</h4><h4>LENOVO</h4><h4>D-LINK</h4><h4>CANON</h4><h4>GIGABYTE</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container support-section">
+        <div class="support-box">
+            <div class="support-header-title"><span>SUP</span>PORT</div>
+            <div class="support-row-item">Help Desk Ticket</div>
+            <div class="support-row-item">Call Login</div>
+            <div class="support-action-body">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfChdLo9103W4ZGvFJMFnxwckmSRQs17TkSWTezWCtTxurP6Q/viewform?usp=header" target="_blank" class="login-btn-link">
+                    Click to Login <i class="fa-solid fa-circle-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
