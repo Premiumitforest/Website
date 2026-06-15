@@ -6,22 +6,19 @@
     <title>Premium IT Forest | Enterprise IT Support & Surveillance Kolkata</title>
     <meta name="description" content="Premium IT Forest provides elite IT infrastructure support, laptop/desktop repairs, server management, firewalls, CCTV setup, and biometric systems in Kolkata.">
    
-    <!-- External Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
             --primary: #0056b3;
             --secondary: #00d2ff;
-            --dark: #070b13;
+            --dark: #0f172a;
             --light: #f8fafc;
             --gray: #64748b;
             --accent: #38bdf8;
             --neon-green: #10b981;
             --neon-red: #ef4444;
-            --neon-orange: #f59e0b;
-            --card-glass: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
         }
 
         * {
@@ -32,35 +29,33 @@
         }
 
         body {
-            background-color: #070b13;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* --- Navigation Bar --- */
         nav {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .logo {
-            font-weight: 800;
-            font-size: 24px;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary);
+            white-space: nowrap;
         }
 
-        .logo span { color: var(--secondary); text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
+        .logo span { color: var(--secondary); }
 
         nav ul {
             display: flex;
@@ -71,13 +66,13 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #94a3b8;
+            color: var(--dark);
             font-weight: 500;
             transition: 0.3s;
             white-space: nowrap;
         }
 
-        nav ul li a:hover { color: var(--secondary); text-shadow: 0 0 8px rgba(0, 210, 255, 0.5); }
+        nav ul li a:hover { color: var(--primary); }
 
         @media (max-width: 768px) {
             nav {
@@ -93,24 +88,23 @@
             }
             nav ul li { margin-left: 0; }
             nav ul li a { font-size: 14px; }
-            .hero h1 { font-size: 28px !important; }
-            .hero p { font-size: 14px !important; }
+            .hero h1 { font-size: 32px !important; }
+            .hero p { font-size: 15px !important; }
         }
 
-        /* --- 5D Volumetric Centered Hero Banner --- */
+        /* --- Hero Banner --- */
         .hero {
             position: relative;
-            background: #030712;
-            min-height: 70vh;
+            background: var(--dark); 
+            min-height: 55vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #ffffff;
-            padding: 60px 20px;
+            padding: 40px 20px;
             overflow: hidden;
-            border-bottom: 2px solid rgba(0, 210, 255, 0.1);
         }
 
         #matrixCanvas {
@@ -119,59 +113,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.12; 
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Volumetric Radial Ambient Lighting behind content */
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, transparent 70%);
+            opacity: 0.15; 
             z-index: 1;
             pointer-events: none;
         }
 
         .hero-content {
             position: relative;
-            z-index: 5;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            max-width: 900px;
-        }
-
-        /* Center-aligned Company Brand Banner */
-        .hero-brand {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 48px;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            background: linear-gradient(135deg, #ffffff 30%, #38bdf8 70%, #00d2ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 4px 15px rgba(0, 210, 255, 0.4));
-            animation: brandPulse 3s infinite ease-in-out;
-        }
-
-        @keyframes brandPulse {
-            0%, 100% { filter: drop-shadow(0 4px 15px rgba(0, 210, 255, 0.4)); }
-            50% { filter: drop-shadow(0 4px 30px rgba(0, 210, 255, 0.7)); transform: scale(1.02); }
+            z-index: 2; 
         }
 
         .hero h1 {
-            font-size: 32px;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-            color: #e2e8f0;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
             animation: fadeInUp 1s ease-out forwards;
             opacity: 0;
         }
@@ -179,70 +135,66 @@
         .hero p {
             font-size: 18px;
             font-weight: 300;
-            max-width: 700px;
-            color: #94a3b8;
-            line-height: 1.8;
+            max-width: 650px;
+            color: #e2e8f0;
             animation: fadeInUp 1s ease-out 0.3s forwards;
             opacity: 0;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- Section Styling --- */
         .section-container {
-            padding: 80px 8%;
+            padding: 70px 8%;
             text-align: center;
         }
 
         .section-title {
-            font-size: 36px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 15px;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
             text-transform: uppercase;
             position: relative;
             display: inline-block;
-            letter-spacing: 1px;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
+            width: 60%;
             height: 4px;
             background: var(--secondary);
-            margin: 10px auto 0 auto;
+            margin: 8px auto 0 auto;
             border-radius: 2px;
-            box-shadow: 0 0 10px var(--secondary);
         }
 
         .section-subtitle {
-            color: #94a3b8;
+            color: #475569;
             font-size: 16px;
             max-width: 750px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto 40px auto;
         }
 
-        /* --- 5D Realism Interactive Service Grid Layout --- */
+        /* --- Realistic Glow Grid Layout --- */
         .premium-services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             padding: 20px 0;
-            perspective: 1200px; /* Essential for actual 3D card tilts */
         }
 
         .premium-service-card {
             position: relative;
-            height: 290px;
-            border-radius: 20px;
+            height: 260px;
+            border-radius: 16px;
             overflow: hidden;
-            background: var(--card-glass);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.1);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+            background: linear-gradient(145deg, #1e293b, #090d16);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -252,140 +204,111 @@
             padding-bottom: 60px;
         }
 
-        /* 3D Translation Suspend Effect on Hover */
         .premium-service-card:hover {
-            transform: translateY(-12px) rotateX(4deg) rotateY(1deg);
-            box-shadow: 0 25px 50px rgba(0, 210, 255, 0.4), inset 0 1px 4px rgba(255, 255, 255, 0.2);
-            border-color: rgba(0, 210, 255, 0.6);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.35);
+            border-color: rgba(0, 210, 255, 0.5);
         }
 
-        /* Glass flare sweep layer */
+        /* Shimmering animation on card items */
         .premium-service-card::before {
             content: '';
             position: absolute;
-            top: 0; left: -150%;
-            width: 60%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.08), transparent);
-            transform: skewX(-30deg);
-            transition: 0.8s ease-in-out;
-            pointer-events: none;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent);
+            transform: skewX(-25deg);
+            transition: 0.7s;
         }
         .premium-service-card:hover::before {
-            left: 150%;
+            left: 120%;
         }
 
         .premium-service-card svg, .device-wrapper {
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8));
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
         }
 
         .premium-service-card:hover svg, .premium-service-card:hover .device-wrapper {
-            transform: scale(1.1) translateZ(20px);
-            filter: drop-shadow(0 20px 30px rgba(0, 210, 255, 0.3));
+            transform: scale(1.06);
         }
 
-        /* Multi-layered Text Banner */
         .premium-service-card .text-banner {
             position: absolute;
             bottom: 0;
             left: 0;
-            background: linear-gradient(to right, #050811, #003b80);
+            background: linear-gradient(to right, #090d16, #004ba0);
             color: #ffffff;
             width: 100%;
-            padding: 16px 24px;
+            padding: 16px 20px;
             font-weight: 700;
             font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-align: left;
             border-top: 2px solid var(--secondary);
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.8);
         }
 
         /* --- Team Grid Section --- */
-        .team-section { background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255,255,255,0.05); padding: 80px 8%; }
+        .team-section { background: var(--light); padding: 50px 8%; }
         .team-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 20px; }
-        .team-card { text-align: center; padding: 30px 50px; background: #0f172a; border-radius: 12px; min-width: 280px; border-top: 4px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(255,255,255,0.02); border-right: 1px solid rgba(255,255,255,0.02); }
-        .team-card h3 { font-size: 22px; color: #ffffff; font-weight: 600; margin-bottom: 5px; }
-        .team-card p { font-size: 13px; color: var(--secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+        .team-card { text-align: center; padding: 25px 45px; background: #ffffff; border-radius: 8px; min-width: 260px; border-top: 4px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; }
+        .team-card h3 { font-size: 20px; color: var(--dark); font-weight: 600; margin-bottom: 5px; }
+        .team-card p { font-size: 13px; color: var(--primary); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- Why Choose Us --- */
         .why-choose-us {
-            background: linear-gradient(135deg, #0f172a, #070b13) !important;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            background: linear-gradient(135deg, var(--dark), #1e293b) !important;
             color: #ffffff;
         }
-        .why-choose-us .section-subtitle { color: #94a3b8; }
-        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
+        .why-choose-us .section-title { color: #ffffff; }
+        .why-choose-us .section-title::after { background: var(--secondary); }
+        .why-choose-us .section-subtitle { color: #cbd5e1; }
+        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
         .highlight-item {
-            background: rgba(30, 41, 59, 0.6) !important;
-            padding: 50px 30px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
+            background: #ffffff !important;
+            padding: 40px 25px;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
         }
-        .highlight-item:hover { transform: translateY(-5px); }
-        .highlight-item h3 { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 15px; text-transform: uppercase; }
+        .highlight-item h3 { font-size: 19px; font-weight: 700; color: var(--dark); margin-bottom: 12px; text-transform: uppercase; }
         .highlight-item .badge-icon {
-            width: 80px; height: 80px; background: rgba(0, 210, 255, 0.1) !important; color: var(--secondary) !important;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 25px auto; border: 2px solid rgba(0, 210, 255, 0.3);
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+            width: 70px; height: 70px; background: #e0f2fe !important; color: #0284c7 !important;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px auto; border: 2px solid #93c5fd;
         }
-        .highlight-item p { font-size: 14.5px; color: #94a3b8 !important; line-height: 1.7; }
+        .highlight-item p { font-size: 14px; color: #334155 !important; }
 
         /* --- Logo Marquee --- */
-        .marquee-wrapper { overflow: hidden; width: 100%; background: #070b13; padding: 35px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .marquee-wrapper { overflow: hidden; width: 100%; background: #ffffff; padding: 25px 0; }
         .marquee-content { display: flex; width: max-content; animation: scrollMarquee 25s linear infinite; }
-        .marquee-content h4 { font-size: 24px; font-weight: 700; color: #334155; padding: 0 60px; letter-spacing: 3px; text-transform: uppercase; }
+        .marquee-content h4 { font-size: 24px; font-weight: 600; color: #cbd5e1; padding: 0 50px; letter-spacing: 2px; text-transform: uppercase; }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- Support Section --- */
         .support-section {
-            background-color: #030712; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px; border-top: 1px solid rgba(255,255,255,0.05);
+            background-color: var(--light); display: flex; flex-direction: column; align-items: center; justify-content: center; border-top: 1px solid #cbd5e1;
         }
         .support-box {
-            width: 500px; background: rgba(15, 23, 42, 0.9); border: 2px solid var(--secondary); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 210, 255, 0.2);
+            width: 480px; background: #ffffff; border: 2px solid var(--secondary); border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
         }
         .support-header-title {
-            background: linear-gradient(135deg, #070b13, var(--primary)); padding: 25px; font-size: 26px; font-weight: 800; color: #ffffff; text-transform: uppercase; text-align: center; letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--dark), var(--primary)); padding: 22px; font-size: 26px; font-weight: 800; color: #ffffff; text-transform: uppercase; text-align: center;
         }
-        .support-header-title span { color: var(--secondary); text-shadow: 0 0 10px rgba(0,210,255,0.5); }
-        .support-row-item { border-top: 1px solid rgba(255,255,255,0.05); background: transparent; padding: 20px 30px; font-size: 16px; font-weight: 600; color: #cbd5e1; display: flex; align-items: center; }
-        .support-row-item i { color: var(--secondary); margin-right: 15px; font-size: 18px; }
-        .support-action-body { border-top: 1px solid rgba(255,255,255,0.05); background: rgba(7, 11, 19, 0.5); padding: 35px 20px; display: flex; justify-content: center; align-items: center; }
-        
-        .login-btn-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #0284c7;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 16px 45px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 16px;
-            box-shadow: 0 4px 20px rgba(2, 132, 199, 0.45);
-            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-        }
-        .login-btn-link:hover {
-            background: #0369a1;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(2, 132, 199, 0.65);
-        }
+        .support-header-title span { color: var(--secondary); }
+        .support-row-item { border-top: 1px solid #f1f5f9; background: #ffffff; padding: 18px 25px; font-size: 16px; font-weight: 600; color: #475569; }
+        .support-row-item i { color: var(--primary); margin-right: 12px; }
+        .support-action-body { border-top: 1px solid #f1f5f9; background: #fafafa; padding: 35px 20px; display: flex; justify-content: center; align-items: center; }
 
         /* --- Footer --- */
-        footer { background: #030712; color: #ffffff; padding: 80px 8% 30px 8%; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; text-align: left; margin-bottom: 50px; }
-        .footer-col h3 { font-size: 18px; margin-bottom: 25px; color: #ffffff; position: relative; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col h3::after { content: ''; display: block; width: 40px; height: 2px; background: var(--secondary); margin-top: 8px; }
-        .footer-col p { color: #94a3b8; font-size: 14px; margin-bottom: 15px; display: flex; align-items: center; line-height: 1.8; }
-        .footer-col p i { margin-right: 15px; color: var(--secondary); font-size: 18px; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; font-size: 13px; color: #475569; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+        footer { background: var(--dark); color: #ffffff; padding: 60px 8% 20px 8%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left; margin-bottom: 40px; }
+        .footer-col h3 { font-size: 18px; margin-bottom: 20px; color: #ffffff; position: relative; }
+        .footer-col h3::after { content: ''; display: block; width: 30px; height: 2px; background: var(--secondary); margin-top: 5px; }
+        .footer-col p { color: #94a3b8; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; }
+        .footer-col p i { margin-right: 12px; color: var(--secondary); font-size: 16px; }
+        .footer-bottom { border-top: 1px solid #334155; padding-top: 20px; font-size: 13px; color: #64748b; display: flex; justify-content: space-between; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -403,9 +326,8 @@
     <section class="hero" id="home">
         <canvas id="matrixCanvas"></canvas>
         <div class="hero-content">
-            <div class="hero-brand">Premium IT Forest</div>
             <h1>Keep calm and let our engineers handle it.</h1>
-            <p>Your elite technology companion, providing mission-critical infrastructure deployments, advanced network security, and professional surveillance engineering across Kolkata.</p>
+            <p>Premium IT Forest is your elite technology companion, providing mission-critical infrastructure deployments and dependable system engineering across Kolkata.</p>
         </div>
     </section>
 
@@ -416,249 +338,134 @@
         </p>
     </section>
 
-    <section class="section-container" id="services" style="background: transparent; padding-bottom: 60px;">
+    <section class="section-container" id="services" style="background: #ffffff; padding-bottom: 40px;">
         <h2 class="section-title">Our Services</h2>
         <p class="section-subtitle">Comprehensive design, optimization, and hardware integration services built to scale.</p>
        
         <div class="premium-services-grid">
             
-            <!-- 1. SERVER (High Fidelity 3D Render Style with Scrolling Diagnostics) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="serverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#334155"/>
-                            <stop offset="100%" stop-color="#0f172a"/>
+                            <stop offset="100%" stop-color="#1e293b"/>
                         </linearGradient>
                         <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stop-color="#00d2ff"/>
                             <stop offset="100%" stop-color="#0056b3"/>
                         </linearGradient>
                     </defs>
-                    <style>
-                        @keyframes serverLedPulse1 { 0%, 100% { fill: #10b981; filter: drop-shadow(0 0 6px #10b981); } 50% { fill: #047857; filter: none; } }
-                        @keyframes serverLedPulse2 { 0%, 100% { fill: #ef4444; filter: drop-shadow(0 0 6px #ef4444); } 50% { fill: #991b1b; filter: none; } }
-                        @keyframes serverLedPulse3 { 0%, 100% { fill: #f59e0b; filter: drop-shadow(0 0 6px #f59e0b); } 50% { fill: #b45309; filter: none; } }
-                        @keyframes serverDataStream { 0% { stroke-dashoffset: 24; } 100% { stroke-dashoffset: 0; } }
-                        .srv-led-1 { animation: serverLedPulse1 1s infinite ease-in-out; }
-                        .srv-led-2 { animation: serverLedPulse2 0.7s infinite ease-in-out; }
-                        .srv-led-3 { animation: serverLedPulse3 1.4s infinite ease-in-out; }
-                        .srv-stream { stroke-dasharray: 6 3; animation: serverDataStream 1.5s linear infinite; }
-                    </style>
-                    <!-- Server Cabinet Grid Housing Shell -->
-                    <rect x="8" y="6" width="84" height="88" rx="8" fill="#080c14" stroke="#1e293b" stroke-width="2"/>
-                    <!-- Server Chassis 1 -->
-                    <rect x="14" y="14" width="72" height="22" rx="4" fill="url(#serverGrad)" stroke="url(#neonGlow)" stroke-width="1.5"/>
-                    <rect x="20" y="23" width="25" height="4" rx="1" fill="#020617"/>
-                    <circle cx="60" cy="25" r="3" class="srv-led-1"/>
-                    <circle cx="68" cy="25" r="3" class="srv-led-1"/>
-                    <circle cx="76" cy="25" r="2.5" fill="#00d2ff"/>
+                    <rect x="15" y="15" width="70" height="22" rx="4" fill="url(#serverGrad)" stroke="url(#neonGlow)" stroke-width="1.5"/>
+                    <rect x="20" y="24" width="30" height="4" rx="1" fill="#090d16"/>
+                    <circle cx="60" cy="26" r="2.5" fill="#10b981" filter="drop-shadow(0 0 4px #10b981)"/>
+                    <circle cx="68" cy="26" r="2.5" fill="#10b981" filter="drop-shadow(0 0 4px #10b981)"/>
+                    <circle cx="76" cy="26" r="2" fill="#00d2ff"/>
                     
-                    <!-- Server Chassis 2 -->
-                    <rect x="14" y="39" width="72" height="22" rx="4" fill="url(#serverGrad)" stroke="url(#neonGlow)" stroke-width="1.5"/>
-                    <rect x="20" y="48" width="25" height="4" rx="1" fill="#020617"/>
-                    <circle cx="60" cy="50" r="3" class="srv-led-1"/>
-                    <circle cx="68" cy="50" r="3" class="srv-led-3"/>
-                    <circle cx="76" cy="50" r="2.5" fill="#00d2ff"/>
+                    <rect x="15" y="42" width="70" height="22" rx="4" fill="url(#serverGrad)" stroke="url(#neonGlow)" stroke-width="1.5"/>
+                    <rect x="20" y="51" width="30" height="4" rx="1" fill="#090d16"/>
+                    <circle cx="60" cy="53" r="2.5" fill="#10b981" filter="drop-shadow(0 0 4px #10b981)"/>
+                    <circle cx="68" cy="53" r="2.5" fill="#f59e0b" filter="drop-shadow(0 0 4px #f59e0b)"/>
+                    <circle cx="76" cy="53" r="2" fill="#00d2ff"/>
 
-                    <!-- Server Chassis 3 -->
-                    <rect x="14" y="64" width="72" height="22" rx="4" fill="url(#serverGrad)" stroke="url(#neonGlow)" stroke-width="1.5"/>
-                    <rect x="20" y="73" width="25" height="4" rx="1" fill="#020617"/>
-                    <circle cx="60" cy="75" r="3" class="srv-led-1"/>
-                    <circle cx="68" cy="75" r="3" class="srv-led-2"/>
-                    <circle cx="76" cy="75" r="2.5" fill="#00d2ff"/>
-
-                    <!-- Data link stream vector -->
-                    <path d="M50 14V86" stroke="#00d2ff" stroke-width="1.5" class="srv-stream" opacity="0.4"/>
+                    <rect x="15" y="69" width="70" height="22" rx="4" fill="url(#serverGrad)" stroke="url(#neonGlow)" stroke-width="1.5"/>
+                    <rect x="20" y="78" width="30" height="4" rx="1" fill="#090d16"/>
+                    <circle cx="60" cy="80" r="2.5" fill="#10b981" filter="drop-shadow(0 0 4px #10b981)"/>
+                    <circle cx="68" cy="80" r="2.5" fill="#10b981" filter="drop-shadow(0 0 4px #10b981)"/>
+                    <circle cx="76" cy="80" r="2" fill="#00d2ff"/>
                 </svg>
                 <div class="text-banner">Server</div>
             </div>
 
-            <!-- 2. LAPTOP (Interactive Code Console Engine) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="laptopScreen" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#090d16"/>
-                            <stop offset="100%" stop-color="#021424"/>
+                        <linearGradient id="screenBg" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#0f172a"/>
+                            <stop offset="100%" stop-color="#002233"/>
                         </linearGradient>
                     </defs>
-                    <style>
-                        @keyframes codeScroll {
-                            0% { transform: translateY(0px); }
-                            100% { transform: translateY(-16px); }
-                        }
-                        .code-console { animation: codeScroll 4s linear infinite; }
-                    </style>
-                    <!-- Screen Frame Bezel -->
-                    <rect x="15" y="18" width="70" height="46" rx="6" fill="#334155" stroke="#475569" stroke-width="2"/>
-                    <!-- Inside LCD Display Display Panel -->
-                    <rect x="19" y="22" width="62" height="38" rx="2" fill="url(#laptopScreen)" stroke="#00d2ff" stroke-width="1"/>
-                    
-                    <!-- Scrolling Shell Terminal Script Layer -->
-                    <g clip-path="url(#lapTerminalClip)">
-                        <g class="code-console">
-                            <line x1="24" y1="28" x2="38" y2="28" stroke="#10b981" stroke-width="2"/>
-                            <line x1="24" y1="34" x2="55" y2="34" stroke="#38bdf8" stroke-width="2"/>
-                            <line x1="24" y1="40" x2="45" y2="40" stroke="#f59e0b" stroke-width="2"/>
-                            <line x1="24" y1="46" x2="34" y2="46" stroke="#10b981" stroke-width="2"/>
-                            <!-- Repeating layout sequences -->
-                            <line x1="24" y1="52" x2="52" y2="52" stroke="#38bdf8" stroke-width="2"/>
-                            <line x1="24" y1="58" x2="40" y2="58" stroke="#ef4444" stroke-width="2"/>
-                            <line x1="24" y1="64" x2="48" y2="64" stroke="#10b981" stroke-width="2"/>
-                        </g>
-                    </g>
-                    
-                    <clipPath id="lapTerminalClip">
-                        <rect x="21" y="24" width="58" height="34"/>
-                    </clipPath>
-
-                    <!-- Base enclosure frame profile -->
-                    <path d="M6 64H94L88 76H12L6 64Z" fill="#1e293b" stroke="#00d2ff" stroke-width="1.5"/>
-                    <rect x="38" y="67" width="24" height="5" rx="1.5" fill="#334155"/>
+                    <rect x="18" y="20" width="64" height="44" rx="6" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                    <rect x="22" y="24" width="56" height="36" rx="2" fill="url(#screenBg)"/>
+                    <path d="M28 32H48M28 40H64M28 48H40" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M52 48L60 40L64 44" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 64H90L85 75H15L10 64Z" fill="#1e293b" stroke="#00d2ff" stroke-width="1.5"/>
+                    <rect x="42" y="67" width="16" height="5" rx="1" fill="#475569"/>
                 </svg>
                 <div class="text-banner">Laptop</div>
             </div>
 
-            <!-- 3. DESKTOP (Interactive Diagnostic Analytics & Pulsing Radar) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        @keyframes pathSweep { 0% { stroke-dashoffset: 140; } 100% { stroke-dashoffset: 0; } }
-                        @keyframes concentricRadar { 0% { transform: scale(0.9); opacity: 0.1; } 50% { opacity: 0.5; } 100% { transform: scale(1.2); opacity: 0; } }
-                        .tracer-chart { stroke-dasharray: 140; animation: pathSweep 3s linear infinite; }
-                        .radar-glow { transform-origin: 50px 36px; animation: concentricRadar 2.5s infinite ease-out; }
-                    </style>
-                    <!-- Curved Desktop Monitor Layout Panel -->
-                    <rect x="10" y="13" width="80" height="50" rx="6" fill="#1e293b" stroke="#475569" stroke-width="2"/>
-                    <rect x="14" y="17" width="72" height="42" rx="3" fill="#080c14" stroke="#00d2ff" stroke-width="1"/>
-                    
-                    <!-- Radar background circle -->
-                    <circle cx="50" cy="36" r="16" stroke="rgba(0, 210, 255, 0.15)" stroke-width="1" fill="none"/>
-                    <circle cx="50" cy="36" r="16" stroke="#00d2ff" stroke-width="1.5" class="radar-glow" fill="none"/>
-                    
-                    <!-- Diagnostic analytics system graph path -->
-                    <path d="M18 48L30 38L40 45L55 26L68 42L82 30" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="tracer-chart" fill="none"/>
-                    
-                    <!-- Stand Bracket assembly -->
+                    <rect x="12" y="15" width="76" height="48" rx="6" fill="#1e293b" stroke="#00d2ff" stroke-width="2"/>
+                    <rect x="16" y="19" width="68" height="40" rx="2" fill="#0f172a"/>
+                    <circle cx="34" cy="38" r="10" stroke="#38bdf8" stroke-width="2" fill="none" stroke-dasharray="30 10"/>
+                    <path d="M54 30L64 42H74" stroke="#10b981" stroke-width="2" stroke-linecap="round" fill="none"/>
                     <path d="M44 63L38 78H62L56 63H44Z" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
-                    <rect x="28" y="78" width="44" height="3" rx="1.5" fill="#00d2ff"/>
+                    <rect x="32" y="78" width="36" height="3" rx="1" fill="#00d2ff"/>
                 </svg>
                 <div class="text-banner">Desktop</div>
             </div>
 
-            <!-- 4. ACCESSORIES (Pulsing RGB Mechanical Keyboard & Laser Mouse) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        @keyframes waveRGB {
-                            0%, 100% { fill: #00d2ff; filter: drop-shadow(0 0 4px #00d2ff); }
-                            33% { fill: #10b981; filter: drop-shadow(0 0 4px #10b981); }
-                            66% { fill: #ef4444; filter: drop-shadow(0 0 4px #ef4444); }
-                        }
-                        @keyframes mouseGlowSensor { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-                        .keycaps-color { animation: waveRGB 5s infinite linear; }
-                        .sensor-wave { animation: mouseGlowSensor 1.2s infinite ease-in-out; }
-                    </style>
-                    <!-- Peripheral Housing Deck Base -->
-                    <rect x="10" y="20" width="80" height="28" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                    <!-- RGB mechanical switches -->
-                    <rect x="16" y="26" width="10" height="7" rx="1.5" class="keycaps-color"/>
-                    <rect x="29" y="26" width="10" height="7" rx="1.5" fill="#334155"/>
-                    <rect x="42" y="26" width="10" height="7" rx="1.5" fill="#334155"/>
-                    <rect x="55" y="26" width="10" height="7" rx="1.5" fill="#334155"/>
-                    <rect x="68" y="26" width="16" height="7" rx="1.5" class="keycaps-color"/>
-                    
-                    <rect x="16" y="36" width="16" height="7" rx="1.5" fill="#334155"/>
-                    <rect x="35" y="36" width="30" height="7" rx="1.5" class="keycaps-color"/>
-                    <rect x="68" y="36" width="16" height="7" rx="1.5" fill="#334155"/>
-
-                    <!-- Precision wireless computer gaming mouse -->
-                    <rect x="36" y="58" width="28" height="34" rx="12" fill="#1e293b" stroke="#00d2ff" stroke-width="1.5"/>
+                    <rect x="12" y="22" width="76" height="26" rx="5" fill="#1e293b" stroke="#00d2ff" stroke-width="1.5"/>
+                    <rect x="18" y="28" width="10" height="6" rx="1.5" fill="#0056b3"/>
+                    <rect x="31" y="28" width="38" height="6" rx="1.5" fill="#334155"/>
+                    <rect x="72" y="28" width="10" height="6" rx="1.5" fill="#0056b3"/>
+                    <rect x="18" y="37" width="14" height="6" rx="1.5" fill="#334155"/>
+                    <rect x="35" y="37" width="30" height="6" rx="1.5" fill="#00d2ff" filter="drop-shadow(0 0 3px #00d2ff)"/>
+                    <rect x="68" y="37" width="14" height="6" rx="1.5" fill="#334155"/>
+                    <rect x="38" y="58" width="24" height="34" rx="12" fill="#1e293b" stroke="#00d2ff" stroke-width="1.5"/>
                     <line x1="50" y1="58" x2="50" y2="72" stroke="#475569" stroke-width="1.5"/>
-                    <rect x="48" y="64" width="4" height="6" rx="1.5" fill="#ef4444" class="sensor-wave"/>
+                    <rect x="48" y="63" width="4" height="7" rx="2" fill="#10b981" filter="drop-shadow(0 0 3px #10b981)"/>
                 </svg>
                 <div class="text-banner">Accessories</div>
             </div>
 
-            <!-- 5. CLOUD STORAGE (Volumetric Floating Database Structure) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="cloudVolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#1e293b"/>
-                            <stop offset="100%" stop-color="#0a0f1d"/>
+                            <stop offset="100%" stop-color="#0f172a"/>
                         </linearGradient>
                     </defs>
-                    <style>
-                        @keyframes cloudDrift { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-5px); } }
-                        @keyframes databankPulse { 0%, 100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 6px #00d2ff); } 50% { transform: scale(1.15); opacity: 0.8; filter: none; } }
-                        .floating-panel { animation: cloudDrift 4.5s infinite ease-in-out; }
-                        .system-pulsing-node { transform-origin: center; animation: databankPulse 2s infinite ease-in-out; }
-                    </style>
-                    <g class="floating-panel">
-                        <!-- Cloud outer framing container structure -->
-                        <path d="M36 62C25.5 62 17 53.5 17 43C17 33.8 23.5 26.2 32.2 24.4C35.5 15.8 43.8 9.5 53.5 9.5C66 9.5 76.5 18.5 78.8 30.5C86.8 31.8 92.5 38.5 92.5 46.8C92.5 55.2 85.8 62 77.5 62H36Z" fill="url(#cloudVolGrad)" stroke="#00d2ff" stroke-width="2"/>
-                        <!-- Database array matrix paths -->
-                        <line x1="36" y1="46" x2="72" y2="46" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="3 3"/>
-                        <line x1="54" y1="32" x2="36" y2="46" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3"/>
-                        <line x1="54" y1="32" x2="72" y2="46" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3"/>
-                        
-                        <!-- Translucent core nodes -->
-                        <circle cx="36" cy="46" r="4.5" fill="#00d2ff" class="system-pulsing-node"/>
-                        <circle cx="54" cy="32" r="4.5" fill="#38bdf8" class="system-pulsing-node" style="animation-delay: 0.5s;"/>
-                        <circle cx="72" cy="46" r="4.5" fill="#00d2ff" class="system-pulsing-node" style="animation-delay: 1s;"/>
+                    <path d="M36 62C25.5 62 17 53.5 17 43C17 33.8 23.5 26.2 32.2 24.4C35.5 15.8 43.8 9.5 53.5 9.5C66 9.5 76.5 18.5 78.8 30.5C86.8 31.8 92.5 38.5 92.5 46.8C92.5 55.2 85.8 62 77.5 62H36Z" fill="url(#cloudGrad)" stroke="#00d2ff" stroke-width="2"/>
+                    <g filter="drop-shadow(0 0 6px #00d2ff)">
+                        <circle cx="36" cy="46" r="4" fill="#00d2ff"/>
+                        <circle cx="54" cy="32" r="4" fill="#38bdf8"/>
+                        <circle cx="72" cy="46" r="4" fill="#00d2ff"/>
+                        <path d="M36 46H72M54 32L36 46M54 32L72 46" stroke="#00d2ff" stroke-width="1.5"/>
                     </g>
                 </svg>
                 <div class="text-banner">Cloud Storage</div>
             </div>
 
-            <!-- 6. CCTV (Highly Realistic Sweeping Camera head with Volumetric Laser Beam) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        @keyframes activeCameraSweep { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } }
-                        @keyframes targetBeamWave { 0% { transform: scale(0.9); opacity: 0.15; } 50% { opacity: 0.4; } 100% { transform: scale(1.1); opacity: 0; } }
-                        .camera-core { transform-origin: 50px 32px; animation: activeCameraSweep 5s infinite ease-in-out; }
-                        .radar-emission { transform-origin: 50px 46px; animation: targetBeamWave 2.5s infinite ease-out; }
-                    </style>
-                    <!-- Ceiling Mount Bracket Base Frame Plate -->
-                    <ellipse cx="50" cy="24" rx="36" ry="12" fill="#334155" stroke="#475569" stroke-width="2"/>
-                    
-                    <!-- Highly glossy clear panoramic dome window panel layer -->
-                    <path d="M14 32C14 32 14 74 50 74C86 74 86 32 86 32" fill="rgba(0, 210, 255, 0.05)" stroke="#00d2ff" stroke-width="2" stroke-dasharray="100 3"/>
-                    
-                    <!-- Volumetric laser target radar system tracking stream emission sweep -->
-                    <path d="M14 74 L 50 46 L 86 74Z" fill="url(#radarLaserGrad)" class="radar-emission" opacity="0.1"/>
-                    <defs>
-                        <linearGradient id="radarLaserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#00d2ff" stop-opacity="0.6"/>
-                            <stop offset="100%" stop-color="#00d2ff" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-
-                    <!-- Core eyeball dome security camera rotating head hardware structure setup -->
-                    <g class="camera-core">
-                        <circle cx="50" cy="46" r="20" fill="#090d16" stroke="#38bdf8" stroke-width="1.5"/>
-                        <circle cx="50" cy="46" r="7" fill="#1e293b" stroke="#00d2ff" stroke-width="2"/>
-                        <circle cx="47" cy="43" r="2.5" fill="#ffffff"/> <!-- Dynamic Lens Glare Shield Reflection -->
-                        <circle cx="64" cy="38" r="3" fill="#ef4444" style="animation: srvLedPulse2 0.8s infinite steps(2, start);"/>
-                    </g>
+                    <ellipse cx="50" cy="32" rx="36" ry="14" fill="#334155" stroke="#475569" stroke-width="2"/>
+                    <path d="M14 32C14 32 14 74 50 74C86 74 86 32 86 32" fill="rgba(0, 210, 255, 0.08)" stroke="#00d2ff" stroke-width="2" stroke-dasharray="100 3"/>
+                    <circle cx="50" cy="46" r="20" fill="#090d16" stroke="#38bdf8" stroke-width="1.5"/>
+                    <circle cx="50" cy="46" r="7" fill="#1e293b" stroke="#00d2ff" stroke-width="2"/>
+                    <circle cx="47" cy="43" r="2.5" fill="#ffffff"/> <circle cx="66" cy="38" r="3" fill="#ef4444" style="animation: blinkDot 1s infinite steps(2, start);"/>
                 </svg>
+                <script>
+                    const cctvStyle = document.createElement('style');
+                    cctvStyle.innerHTML = `@keyframes blinkDot { 0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px #ef4444); } 50% { opacity: 0.1; } }`;
+                    document.head.appendChild(cctvStyle);
+                </script>
                 <div class="text-banner">CCTV</div>
             </div>
 
-            <!-- 7. BIOMETRICS (5D-Perspective eSSL Face Scan Scanner Fingerprint Scanner Integrated Dashboard Component) -->
             <div class="premium-service-card">
                 <div class="device-wrapper" style="width: 140px; height: 115px; background: linear-gradient(135deg, #2d3748, #1a202c); border-radius: 10px; border: 2px solid #4a5568; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); margin-top: 10px;">
-                    <!-- Chronometer setup banner tracking element panel clock -->
                     <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                         <div style="width: 7px; height: 7px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981;"></div>
                         <div style="width: 95px; height: 28px; background: #001a29; border: 1px solid #00d2ff; border-radius: 4px; color: #00d2ff; font-family: 'Courier New', monospace; font-size: 11px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 6px rgba(0,210,255,0.5); font-weight: bold; letter-spacing: 0.5px;">
                             04:30 PM
                         </div>
                     </div>
-                    <!-- Tactile structural layout - hardware keypad micro-switch array grid indicators -->
                     <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; margin-top: 5px;">
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; width: 55px;">
                             <div style="width: 15px; height: 8px; background: #4a5568; border-radius: 1.5px; border-bottom: 1px solid #1a202c;"></div>
@@ -669,10 +476,8 @@
                             <div style="width: 15px; height: 8px; background: #4a5568; border-radius: 1.5px; border-bottom: 1px solid #1a202c;"></div>
                             <div style="width: 15px; height: 8px; background: #e53e3e; border-radius: 1.5px; border-bottom: 1px solid #742a2a;"></div>
                         </div>
-                        <!-- High precision biometric scanning matrix glass prism core component block -->
                         <div style="width: 44px; height: 54px; background: #0f172a; border: 2px solid #4a5568; border-radius: 6px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: inset 0 0 10px rgba(0,0,0,0.85);">
                             <div style="width: 34px; height: 40px; background: rgba(0, 210, 255, 0.12); border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 3px; position: relative; display: flex; align-items: center; justify-content: center;">
-                                <!-- Laser scanning line tracker sweeps -->
                                 <div style="position: absolute; width: 100%; height: 2px; background: #00d2ff; top: 0; left: 0; box-shadow: 0 0 8px #00d2ff, 0 0 12px #00d2ff; animation: scanLineMove 2s infinite ease-in-out;"></div>
                                 <i class="fa-solid fa-fingerprint" style="color: rgba(0, 210, 255, 0.85); font-size: 22px; filter: drop-shadow(0 0 4px rgba(0,210,255,0.6));"></i>
                             </div>
@@ -687,198 +492,102 @@
                 <div class="text-banner">Biometrics</div>
             </div>
 
-            <!-- 8. DIGITAL SIGNATURE (Automated Drawing Signature & Volumetric Interactive Stylus) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="signingPad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="padGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#2d3748"/>
                             <stop offset="100%" stop-color="#1a202c"/>
                         </linearGradient>
                     </defs>
-                    <style>
-                        @keyframes writeSignatureLine {
-                            0% { stroke-dashoffset: 130; }
-                            50% { stroke-dashoffset: 0; }
-                            100% { stroke-dashoffset: 0; }
-                        }
-                        @keyframes moveStylusPen {
-                            0% { transform: translate(0px, 0px); }
-                            15% { transform: translate(12px, -8px); }
-                            30% { transform: translate(25px, 8px); }
-                            50% { transform: translate(40px, -6px); }
-                            70%, 100% { transform: translate(40px, -6px); }
-                        }
-                        .sig-line-anim {
-                            stroke-dasharray: 130;
-                            stroke-dashoffset: 130;
-                            animation: writeSignatureLine 5s infinite ease-in-out;
-                        }
-                        .stylus-pen-pos {
-                            animation: moveStylusPen 5s infinite ease-in-out;
-                        }
-                    </style>
-                    <!-- Core digital signature verification pad ledger component chassis setup -->
-                    <rect x="22" y="14" width="56" height="72" rx="8" fill="url(#signingPad)" stroke="#4a5568" stroke-width="2"/>
+                    <rect x="22" y="14" width="56" height="72" rx="8" fill="url(#padGrad)" stroke="#4a5568" stroke-width="2"/>
                     <rect x="27" y="19" width="46" height="62" rx="4" fill="#0f172a" stroke="#00d2ff" stroke-width="1"/>
-                    
-                    <!-- Base context lines details -->
                     <line x1="34" y1="28" x2="66" y2="28" stroke="#1e293b" stroke-width="2"/>
                     <line x1="34" y1="36" x2="66" y2="36" stroke="#1e293b" stroke-width="2"/>
                     <line x1="34" y1="44" x2="52" y2="44" stroke="#1e293b" stroke-width="2"/>
-                    
-                    <!-- Signature dynamic handwriting spline wave line representation -->
-                    <path d="M32 64 C 39 50, 43 76, 54 56 C 60 44, 65 60, 70 54" stroke="#00d2ff" stroke-width="3" stroke-linecap="round" fill="none" class="sig-line-anim" filter="drop-shadow(0 0 4px #00d2ff)"/>
-                    
-                    <!-- Stylus metallic digitizer pen tracking pointer -->
-                    <g class="stylus-pen-pos">
-                        <path d="M32 62 L 54 40 L 59 45 L 37 67Z" fill="#38bdf8" stroke="#00d2ff" stroke-width="1"/>
-                        <circle cx="32" cy="62" r="1.5" fill="#00d2ff"/>
-                    </g>
+                    <path d="M32 64 C 39 50, 43 76, 54 56 C 60 44, 65 60, 70 54" stroke="#00d2ff" stroke-width="3" stroke-linecap="round" fill="none" filter="drop-shadow(0 0 4px #00d2ff)"/>
+                    <path d="M54 46L76 24L81 29L59 51Z" fill="#38bdf8" stroke="#00d2ff" stroke-width="1"/>
+                    <circle cx="54" cy="51" r="1.5" fill="#00d2ff"/>
                 </svg>
                 <div class="text-banner">Digital Signature</div>
             </div>
 
-            <!-- 9. FIREWALL (Isometric Defensive Crest & Shield with Rotating Security Nodes) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="armorShield" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#1e293b"/>
                             <stop offset="50%" stop-color="#0f172a"/>
                             <stop offset="100%" stop-color="#002233"/>
                         </linearGradient>
                     </defs>
-                    <style>
-                        @keyframes fwRingMotion1 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                        @keyframes fwRingMotion2 { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
-                        .fw-node-ring-1 { transform-origin: 50px 48px; animation: fwRingMotion1 10s linear infinite; }
-                        .fw-node-ring-2 { transform-origin: 50px 48px; animation: fwRingMotion2 6s linear infinite; }
-                    </style>
-                    <!-- Volumetric tactical steel gateway firewall protection shield body -->
-                    <path d="M50 12C65 12 78 15.5 82 20C82 46 69 71 50 86C31 71 18 46 18 20C22 15.5 35 12 50 12Z" fill="url(#armorShield)" stroke="#00d2ff" stroke-width="2.5" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.6))"/>
-                    
-                    <!-- Cryptographic data node outer ring loops -->
-                    <circle cx="50" cy="48" r="16" stroke="#38bdf8" stroke-width="1.5" class="fw-node-ring-1" stroke-dasharray="12 6" fill="none"/>
-                    <circle cx="50" cy="48" r="11" stroke="#00d2ff" stroke-width="1" class="fw-node-ring-2" stroke-dasharray="6 3" fill="none"/>
-                    
-                    <!-- Secure central system padlock core components node -->
-                    <rect x="42" y="42" width="16" height="12" rx="2" fill="#090d16" stroke="#10b981" stroke-width="1.5"/>
-                    <path d="M45 42V37C45 34.2 47.2 32 50 32C52.8 32 55 34.2 55 37V42" stroke="#10b981" stroke-width="1.5" fill="none"/>
+                    <path d="M50 12C65 12 78 15.5 82 20C82 46 69 71 50 86C31 71 18 46 18 20C22 15.5 35 12 50 12Z" fill="url(#shieldGrad)" stroke="#00d2ff" stroke-width="2.5" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))"/>
+                    <path d="M50 18C61.5 18 72 21 75 24.5C75 45.5 64 66.5 50 79.5C36 66.5 25 45.5 25 24.5C28 21 38.5 18 50 18Z" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 2" fill="none"/>
+                    <rect x="37" y="44" width="26" height="20" rx="3" fill="#090d16" stroke="#00d2ff" stroke-width="2"/>
+                    <path d="M42 44V36C42 31.5 45.5 28 50 28C54.5 28 58 31.5 58 36V44" stroke="#00d2ff" stroke-width="2.5" fill="none"/>
+                    <circle cx="50" cy="54" r="3" fill="#10b981" filter="drop-shadow(0 0 4px #10b981)"/>
                 </svg>
                 <div class="text-banner">Firewall</div>
             </div>
 
-            <!-- 10. GOOGLE (Holographic API Planet & Orbiting Tracks System) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        @keyframes trackingPlanetOrbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                        .api-orbit-track { transform-origin: 49.5px 53.5px; animation: trackingPlanetOrbit 8s linear infinite; }
-                    </style>
-                    <g filter="drop-shadow(0 4px 10px rgba(0,0,0,0.45))">
-                        <!-- High Fidelity 3D multi-layered style color profile representation -->
+                    <g filter="drop-shadow(0 4px 10px rgba(0,0,0,0.35))">
                         <path d="M49.5 45.5V54.5H67.2C66.4 58.8 63.2 66.2 54.9 71.5L62 77C66.2 73 71 64.5 71 54.5C71 48 69.8 45.5 68.5 45.5H49.5Z" fill="#4285F4"/>
                         <path d="M49.5 18.5C40.2 18.5 31 24.5 26.2 33.5L33.4 39.2C36.8 34 42.5 30.5 49.5 30.5C59.5 30.5 66.2 37 68.8 42.8L75.3 37.5C71.2 26.5 61 18.5 49.5 18.5Z" fill="#EA4335"/>
                         <path d="M25.5 44.5C24 49 24 55 25.5 59.5L32.7 53.8C32.2 51 32.2 48 32.7 45.2L25.5 44.5Z" fill="#FBBC05"/>
                         <path d="M49.5 76.5C41.2 76.5 35.5 73 32.7 67.8L25.5 73.5C30.5 83.5 40.2 88.5 49.5 88.5C61 88.5 71 80.5 74.5 70.2L67.4 64.8C65.2 71.5 58.2 76.5 49.5 76.5Z" fill="#34A853"/>
                     </g>
-                    <!-- Holographic network tracking ring line mapping satellites around planetary core layout -->
-                    <circle cx="49.5" cy="53.5" r="32" stroke="rgba(0, 210, 255, 0.25)" stroke-width="1.5" class="api-orbit-track" stroke-dasharray="20 10" fill="none"/>
                 </svg>
                 <div class="text-banner">Google</div>
             </div>
 
-            <!-- 11. AMC SERVICES (Fully Interlocking 3D Transmission Gears & Calibration Wrench) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="driveGearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="gearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#4a5568"/>
                             <stop offset="50%" stop-color="#2d3748"/>
-                            <stop offset="100%" stop-color="#111827"/>
+                            <stop offset="100%" stop-color="#1a202c"/>
                         </linearGradient>
                     </defs>
-                    <style>
-                        @keyframes physicalDriveLeft { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-                        @keyframes physicalDriveRight { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
-                        @keyframes calibrateWrench { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(15deg); } }
-                        .gear-wheel-main { transform-origin: 44px 56px; animation: physicalDriveLeft 6s linear infinite; }
-                        .gear-wheel-secondary { transform-origin: 66px 36px; animation: physicalDriveRight 4s linear infinite; }
-                        .wrench-tool-calibration { transform-origin: 22px 30px; animation: calibrateWrench 2.5s infinite ease-in-out; }
-                    </style>
-                    <!-- Main physical system drive wheel gear chassis body -->
-                    <g class="gear-wheel-main">
-                        <circle cx="44" cy="56" r="15" fill="url(#driveGearGrad)" stroke="#00d2ff" stroke-width="2"/>
-                        <circle cx="44" cy="56" r="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
-                        <rect x="41" y="32" width="6" height="10" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                        <rect x="41" y="70" width="6" height="10" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                        <rect x="20" y="53" width="10" height="6" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                        <rect x="58" y="53" width="10" height="6" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                        <g transform="rotate(45 44 56)">
-                            <rect x="41" y="32" width="6" height="10" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                            <rect x="41" y="70" width="6" height="10" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                            <rect x="20" y="53" width="10" height="6" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                            <rect x="58" y="53" width="10" height="6" rx="1.5" fill="#334155" stroke="#00d2ff" stroke-width="1"/>
-                        </g>
+                    <circle cx="50" cy="52" r="16" fill="url(#gearGrad)" stroke="#00d2ff" stroke-width="2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.4))"/>
+                    <circle cx="50" cy="52" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+                    
+                    <rect x="46" y="26" width="8" height="11" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                    <rect x="46" y="67" width="8" height="11" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                    <rect x="24" y="48" width="11" height="8" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                    <rect x="65" y="48" width="11" height="8" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                    
+                    <g transform="rotate(45 50 52)">
+                        <rect x="46" y="26" width="8" height="11" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                        <rect x="46" y="67" width="8" height="11" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                        <rect x="24" y="48" width="11" height="8" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
+                        <rect x="65" y="48" width="11" height="8" rx="2" fill="#334155" stroke="#00d2ff" stroke-width="1.5"/>
                     </g>
 
-                    <!-- Interlocking drive cog secondary array wheel -->
-                    <g class="gear-wheel-secondary">
-                        <circle cx="66" cy="36" r="10" fill="url(#driveGearGrad)" stroke="#10b981" stroke-width="1.5"/>
-                        <circle cx="66" cy="36" r="3" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
-                        <rect x="64" y="20" width="4" height="7" rx="1" fill="#334155" stroke="#10b981" stroke-width="0.75"/>
-                        <rect x="64" y="45" width="4" height="7" rx="1" fill="#334155" stroke="#10b981" stroke-width="0.75"/>
-                        <g transform="rotate(45 66 36)">
-                            <rect x="64" y="20" width="4" height="7" rx="1" fill="#334155" stroke="#10b981" stroke-width="0.75"/>
-                            <rect x="64" y="45" width="4" height="7" rx="1" fill="#334155" stroke="#10b981" stroke-width="0.75"/>
-                        </g>
-                    </g>
-
-                    <!-- Professional open-ended wrench/spanner calibrating system core on active pivot bolt -->
-                    <g class="wrench-tool-calibration">
-                        <path d="M22 30 L 37 45" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
-                        <path d="M16 22C12 26 12 32 16 36 L 21 31 L 28 24C32 20 38 20 42 24" stroke="#00d2ff" stroke-width="2" fill="none" filter="drop-shadow(0 0 3px rgba(0,210,255,0.5))"/>
-                    </g>
+                    <path d="M22 26L37 41" stroke="#38bdf8" stroke-width="4.5" stroke-linecap="round"/>
+                    <path d="M16 18C12 22 12 28 16 32L21 27L28 20C32 16 38 16 42 20" stroke="#00d2ff" stroke-width="2" fill="none" filter="drop-shadow(0 0 3px rgba(0,210,255,0.5))"/>
+                    <circle cx="50" cy="52" r="2" fill="#10b981"/>
                 </svg>
                 <div class="text-banner">AMC Services</div>
             </div>
 
-            <!-- 12. AND MANY MORE (Quantum Cluster 5D Hologram Multi-Axis Particle Orbit System) -->
             <div class="premium-service-card">
                 <svg width="130" height="130" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        @keyframes orbitPlane1 { 0% { transform: rotate(0deg) scaleY(0.4); } 50% { transform: rotate(180deg) scaleY(0.6); } 100% { transform: rotate(360deg) scaleY(0.4); } }
-                        @keyframes orbitPlane2 { 0% { transform: rotate(90deg) scaleY(0.3); } 50% { transform: rotate(270deg) scaleY(0.5); } 100% { transform: rotate(450deg) scaleY(0.3); } }
-                        @keyframes orbitPlane3 { 0% { transform: rotate(180deg) scaleY(0.5); } 50% { transform: rotate(360deg) scaleY(0.3); } 100% { transform: rotate(540deg) scaleY(0.5); } }
-                        @keyframes centralCoreGlow { 0%, 100% { filter: drop-shadow(0 0 8px #00d2ff); opacity: 1; } 50% { filter: drop-shadow(0 0 16px #00d2ff); opacity: 0.7; } }
-                        
-                        .central-hologram-core { transform-origin: 50px 50px; animation: centralCoreGlow 2.5s infinite ease-in-out; }
-                        .hologram-ring-1 { transform-origin: 50px 50px; animation: orbitPlane1 8s linear infinite; }
-                        .hologram-ring-2 { transform-origin: 50px 50px; animation: orbitPlane2 6s linear infinite; }
-                        .hologram-ring-3 { transform-origin: 50px 50px; animation: orbitPlane3 10s linear infinite; }
-                    </style>
-                    <!-- Volumetric glowing central hypercore gateway engine block -->
-                    <circle cx="50" cy="50" r="12" fill="#1e293b" stroke="#00d2ff" stroke-width="2.5" class="central-hologram-core"/>
-                    <circle cx="50" cy="50" r="5" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
-
-                    <!-- 3D Orbiting planetary rings representing infinite systemic networks -->
-                    <!-- Plane A -->
-                    <g class="hologram-ring-1">
-                        <ellipse cx="50" cy="50" rx="36" ry="16" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="10 5" fill="none"/>
-                        <circle cx="14" cy="50" r="4.5" fill="#38bdf8" filter="drop-shadow(0 0 4px #38bdf8)"/>
-                        <circle cx="86" cy="50" r="4" fill="#10b981"/>
-                    </g>
-                    <!-- Plane B -->
-                    <g class="hologram-ring-2">
-                        <ellipse cx="50" cy="50" rx="34" ry="12" stroke="#10b981" stroke-width="1.5" stroke-dasharray="15 5" fill="none"/>
-                        <circle cx="16" cy="50" r="4.5" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)"/>
-                    </g>
-                    <!-- Plane C -->
-                    <g class="hologram-ring-3">
-                        <ellipse cx="50" cy="50" rx="38" ry="20" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="5 5" fill="none"/>
-                        <circle cx="88" cy="50" r="4.5" fill="#ef4444" filter="drop-shadow(0 0 4px #ef4444)"/>
-                    </g>
+                    <circle cx="50" cy="50" r="11" fill="#1e293b" stroke="#00d2ff" stroke-width="2" filter="drop-shadow(0 0 8px rgba(0,210,255,0.6))"/>
+                    <circle cx="22" cy="28" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+                    <circle cx="78" cy="28" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+                    <circle cx="22" cy="72" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+                    <circle cx="78" cy="72" r="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+                    <line x1="50" y1="50" x2="22" y2="28" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <line x1="50" y1="50" x2="78" y2="28" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <line x1="50" y1="50" x2="22" y2="72" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <line x1="50" y1="50" x2="78" y2="72" stroke="#00d2ff" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <circle cx="36" cy="39" r="2" fill="#10b981"/>
+                    <circle cx="64" cy="39" r="2" fill="#10b981"/>
+                    <circle cx="36" cy="61" r="2" fill="#10b981"/>
+                    <circle cx="64" cy="61" r="2" fill="#10b981"/>
                 </svg>
                 <div class="text-banner">And Many More</div>
             </div>
@@ -923,7 +632,7 @@
         </div>
     </section>
 
-    <section class="section-container" style="padding-bottom: 40px; background: transparent;">
+    <section class="section-container" style="padding-bottom: 40px; background: #ffffff;">
         <h2 class="section-title">Strategic Networks</h2>
         <p class="section-subtitle">Providing cross-platform hardware sales, authentic product sourcing, and system support.</p>
         <div class="marquee-wrapper">
@@ -994,7 +703,7 @@
         }
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(7, 11, 19, 0.06)';
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.06)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = '#00d2ff';
